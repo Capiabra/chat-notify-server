@@ -4,7 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 // Инициализация Firebase Admin из .env
-const serviceAccount = require('./service-account.json'); // ← просто require
+const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
